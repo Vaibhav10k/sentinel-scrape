@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+from analyzer import analyze_security
 
 url = input("Enter URL: ")
 
@@ -20,6 +21,9 @@ data['links'] = [a['href'] for a in soup.find_all('a', href=True)]
 
 # Forms
 data['forms'] = len(soup.find_all('form'))
+
+#security analysis
+data['security_analysis'] = analyze_security(soup, url)
 
 with open("report.json", "w") as f:
     json.dump(data, f, indent=4)
