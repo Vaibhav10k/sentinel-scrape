@@ -1,0 +1,14 @@
+{
+    "title": "Example Domain",
+    "headings": [
+        "Example Domain"
+    ],
+    "links": [
+        "https://iana.org/domains/example"
+    ],
+    "forms": 0,
+    "security_analysis": {
+        "risk_score": 0,
+        "risk_level": "Low"
+    }
+}

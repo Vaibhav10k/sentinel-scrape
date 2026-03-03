@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import json
 from analyzer import analyze_security
 import argparse
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
     parser = argparse.ArgumentParser(description="SentinelScrape - DOM Security Analyzer")
@@ -12,7 +14,7 @@ def main():
     args = parser.parse_args()
 
     try:
-        response = requests.get(args.url, timeout=5)
+        response = requests.get(args.url, timeout=5,verify=False)
         response.raise_for_status()
     except Exception as e:
         print(f"Error fetching URL: {e}")
